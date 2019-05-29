@@ -7,13 +7,13 @@ package com.microsoft.demoai;
  import org.springframework.web.bind.annotation.RequestMapping;
  import org.springframework.web.bind.annotation.RestController;
  import com.microsoft.applicationinsights.telemetry.Duration;
- import org.slf4j.Logger;
- import org.slf4j.LoggerFactory;
+ import org.apache.logging.log4j.LogManager;
+ import org.apache.logging.log4j.Logger;
 
  @RestController
  @RequestMapping("/sample")
  public class HelloController {
-     private final Logger log = LoggerFactory.getLogger(HelloController.class);
+     private static final Logger log = LogManager.getLogger(HelloController.class);
 
      @Autowired
      TelemetryClient telemetryClient;
@@ -38,7 +38,7 @@ package com.microsoft.demoai;
 
      @GetMapping("/hello")
      public String hello() {
-        log.info("info hello");
+        log.info("log4j info hello");
         return "hello";
      }
  }

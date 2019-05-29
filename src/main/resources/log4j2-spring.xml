@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration packages="com.microsoft.applicationinsights.log4j.v2">
+  <Properties>
+    <Property name="LOG_PATTERN">
+      %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
+    </Property>
+  </Properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    <ApplicationInsightsAppender name="aiAppender">
+    </ApplicationInsightsAppender>
+     <File name="MyFile" fileName="${sys:logging.file:-boot.log}">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+    </File>
+    <Async name="Async">
+      <AppenderRef ref="MyFile"/>
+    </Async>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"  />
+      <AppenderRef ref="aiAppender"  />
+      <AppenderRef ref="Async"  />
+    </Root>
+  </Loggers>
+</Configuration>
