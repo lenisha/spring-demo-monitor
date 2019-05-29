@@ -155,6 +155,24 @@ See `pom.xml` for setting up the latest plugin and run
 `mvn clean package azure-webapp:deploy`
 
 
+## Add Springboot Micrometer Metrics
+
+- add metrics starter jar in pom.xml
+
+```
+<dependency> 
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-spring-boot-metrics-starter</artifactId>
+    <version>2.1.6</version>
+</dependency>	
+```
+
+- Navigate to App Insights metrics and Add Metric from `azure.applicationinsights` namespace
+See below Custom metric from HelloController and JVM metrics
+
+![metrics](metrics.png)
+
+
 ### Guides
 The following guides illustrate how to use some features concretely:
 * [Configure a Spring Boot Initializer app to use Application Insights](https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable)
