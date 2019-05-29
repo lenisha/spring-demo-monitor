@@ -77,11 +77,9 @@
 
 					<appSettings>
 						<!--<property>
-                      <name>JAVA_OPTS</name>
-                      <value>-DSQLDB_URL=jdbc:sqlserver://jnditestsrv.database.windows.net:1433;database=jnditestsql;authentication=ActiveDirectoryMSI;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;</value>
-                  </property>-->
-
-						<!-- Add APPLICATION_INSIGHTS_IKEY - Instrumentation key-->
+                      		<name>JAVA_OPTS</name>
+                      		<value>-Dazure.application-insights.instrumentation-key=%APPINSIGHTS_INSTRUMENTATIONKEY%</value>
+                  		</property>-->
 					</appSettings>
 
 					<deploymentType>ftp</deploymentType>
