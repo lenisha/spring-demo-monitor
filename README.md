@@ -22,11 +22,10 @@ where `applicationinsights-spring-boot-starter` is enabling telemetry data to fl
 and `applicationinsights-logging-logback` is providing LogBack AppInsights appender.
 Logback is default Logging framework for SpringBoot and is part of spring web starter.
 
-- Add AI instrumentation keys to `application.properties`
+- Add AI instrumentation keys to `application.properties` pointing to environment variable (it is available in Application Settings if AI was enabled for Web App)
 
 ```
-# Specify the instrumentation key of your Application Insights resource.
-azure.application-insights.instrumentation-key=[ key ]
+azure.application-insights.instrumentation-key=${APPINSIGHTS_INSTRUMENTATIONKEY}
 ```
 
 - Add AppInsights Appender to logback config , typically `logback-spring.xml` file under  `main\resources`
@@ -107,10 +106,10 @@ Refer to `log4j` branch to see the config, it requires a bit more config compari
 - where `applicationinsights-spring-boot-starter` is enabling telemetry data to flow to AppInsights,
 and `applicationinsights-logging-log4j2` is providing Log4j AppInsights appender.
 
-- Add AI instrumentation keys to `application.properties`
+- Add AI instrumentation keys to `application.properties` pointing to environment variable (it is available in Application Settings if AI was enabled for Web App)
+
 ```
-# Specify the instrumentation key of your Application Insights resource.
-azure.application-insights.instrumentation-key=[ key ]
+azure.application-insights.instrumentation-key=${APPINSIGHTS_INSTRUMENTATIONKEY}
 ```
 - Add AppInsights Appender to Log4j2 config , typically `log4j2-spring.xml` file under  `main\resources`
 
