@@ -11,7 +11,7 @@
     </Console>
     <ApplicationInsightsAppender name="aiAppender">
     </ApplicationInsightsAppender>
-     <File name="MyFile" fileName="${sys:logging.file:-boot.log}">
+    <File name="MyFile" fileName="${sys:logging.file:-boot.log}">
       <PatternLayout>
         <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
       </PatternLayout>
@@ -22,9 +22,9 @@
   </Appenders>
   <Loggers>
     <Root level="info">
-      <AppenderRef ref="Console"  />
-      <AppenderRef ref="aiAppender"  />
-      <AppenderRef ref="Async"  />
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="aiAppender" />
+      <AppenderRef ref="Async" />
     </Root>
   </Loggers>
 </Configuration>
