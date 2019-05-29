@@ -38,7 +38,7 @@ package com.microsoft.demoai;
 
      @GetMapping("/hello")
      public String hello() {
-        log.info("info hello");
+        log.info("info logback hello");
         return "hello";
      }
  }
