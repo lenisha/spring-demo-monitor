@@ -6,16 +6,16 @@ This repo has demonstrates using App Insights Logging Appenders for both `log4j`
 - Add required libraries to enable integratiob with App Insights
 
 ```
-        <dependency>
-			<groupId>com.microsoft.azure</groupId>
-			<artifactId>applicationinsights-spring-boot-starter</artifactId>
-			<version>1.1.2</version>
-		</dependency>
- 		<dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>applicationinsights-logging-logback</artifactId>
-            <version>2.3.1</version>
-        </dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-spring-boot-starter</artifactId>
+    <version>1.1.2</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-logging-logback</artifactId>
+    <version>2.3.1</version>
+</dependency>
 ```
 
 where `applicationinsights-spring-boot-starter` is enabling telemetry data to flow to AppInsights,
