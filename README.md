@@ -5,7 +5,7 @@ This repo has demonstrates using App Insights Logging Appenders for both `log4j`
 ### LogBack
 - Add required libraries to enable integratiob with App Insights
 
-```
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-spring-boot-starter</artifactId>
@@ -31,7 +31,7 @@ azure.application-insights.instrumentation-key=${APPINSIGHTS_INSTRUMENTATIONKEY}
 - Add AppInsights Appender to logback config , typically `logback-spring.xml` file under  `main\resources`
 instrumentation key would be sourced from spring boot properties
 
-```
+```xml
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
@@ -54,7 +54,7 @@ instrumentation key would be sourced from spring boot properties
 - Add `web.config` that is used to start SpringBoot JAR in Azure App Service
 Environment variable `logging.file` is used by default by `FILE` appender using by springboot default config
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <system.webServer>
@@ -74,7 +74,7 @@ Environment variable `logging.file` is used by default by `FILE` appender using 
 Refer to `log4j` branch to see the config, it requires a bit more config comparing to logback
 
 - add required libraries to `pom.xml`, exclude default Logback injected in spring starter and include log4j specific starter.
-```
+```xml
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
@@ -113,7 +113,7 @@ azure.application-insights.instrumentation-key=${APPINSIGHTS_INSTRUMENTATIONKEY}
 ```
 - Add AppInsights Appender to Log4j2 config , typically `log4j2-spring.xml` file under  `main\resources`
 
-```
+```xml
 <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
   <Properties>
     <Property name="LOG_PATTERN">
@@ -240,7 +240,7 @@ The resulting view in the file system:
 
 To profile time execution of specific classes you have to list them in `AI-Agent.xml`, either on class level or down to method level
 
-```
+```xml
  <Class name="com.microsoft.demoai.HelloUtils" type="Service" enabled="true">
            <!--Method name="slow"
                reportCaughtExceptions="true"
@@ -262,7 +262,7 @@ Micrometer application monitoring measures metrics for JVM-based application cod
 
 - add metrics starter jar in pom.xml
 
-```
+```xml
 <dependency> 
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-spring-boot-metrics-starter</artifactId>
@@ -287,7 +287,7 @@ See below standard Spring Metrics
 - You can use Spring `@Timed` annotation to explicitly
 
 - add  dependency to pom.xml
-```
+```xml
     <dependency> 
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-spring-boot-metrics-starter</artifactId>
@@ -306,7 +306,7 @@ See below standard Spring Metrics
 
 
 See below standard Spring Metrics
-![metrics](img/timedmetrics.png)
+![metrics](img/timedmetric.png)
 
 ### Guides
 The following guides illustrate how to use some features concretely:
