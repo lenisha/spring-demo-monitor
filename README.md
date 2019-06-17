@@ -256,6 +256,10 @@ As a result we will see the full Application Map with Dependencies and will be a
 
 ![metrics](img/endtoend.png)
 
+Explicitly configured class will also have caught exptions tracking enabled and see in End to End view:
+![metrics](img/exception.png)
+
+
 ## Add Springboot Micrometer Metrics
 
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to Azure Monitor (and other monitoring systems).
