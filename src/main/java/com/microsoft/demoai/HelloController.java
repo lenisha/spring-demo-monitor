@@ -2,6 +2,8 @@ package com.microsoft.demoai;
 
 import com.microsoft.applicationinsights.TelemetryClient;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import io.micrometer.core.annotation.Timed;
 
 @RestController
 @RequestMapping("/v1")
@@ -46,10 +49,15 @@ public class HelloController {
         // trace a custom trace
         //telemetryClient.trackTrace("Sending a custom trace....");
 
-        double rand = new Random().nextDouble();
-        // track a custom metric
-        telemetryClient.trackMetric("custom business metric", rand);
+        double drand = new Random().nextDouble();
+        int rand = new Random().nextInt(10);
+        Map<String, String> props = new HashMap<String,String>();
+        props.put("team", "team" + rand);
+        props.put("client", "client" + rand);
 
+        // track a custom metric
+        telemetryClient.trackMetric("custom dim metric", drand, 2, 0.0, 1.0, null, props);
+        
         // track a custom dependency
         telemetryClient.trackDependency("ClientProfile Service", "Get", new Duration(0, 0, 1, 1, 1), true);
 
@@ -88,6 +96,7 @@ public class HelloController {
      }
 
      @GetMapping("/slow")
+     @Timed("slowcall")
      public String slow() {
          HelloUtils.slow();
          return "hello slow";
