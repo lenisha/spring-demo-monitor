@@ -288,19 +288,19 @@ See below standard Spring Metrics
 
 - add  dependency to pom.xml
 ```xml
-    <dependency> 
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-spring-boot-metrics-starter</artifactId>
-        <version>2.1.6</version>
-    </dependency>	
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
+<dependency> 
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-spring-boot-metrics-starter</artifactId>
+  <version>2.1.6</version>
+</dependency>	
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-aop</artifactId>
+</dependency>
 ```
 - Add Configuration to register aspect
 
