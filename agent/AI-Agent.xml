@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsightsAgent>
+      <Instrumentation>
+
+        <!-- Collect remote dependency data -->
+         <!-- Collect remote dependency data -->
+        <BuiltIn enabled="true">
+            <!-- Disable Redis or alter threshold call duration above which arguments are sent.
+            Defaults: enabled, 10000 ms -->
+          <Jedis enabled="true" thresholdInMS="1000"/>
+          <JDBC enabled="true"/>
+          <AgentJmx enabled="true"/>
+          <HTTP enabled="true" W3C="false" enableW3CBackCompat="true" />
+          <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
+
+           <RuntimeException enabled="true" stackSize="**Integer.MAX_VALUE**|FULL">
+              <Suppress name="" /><!-- prefixes of FQCNs of exceptions to suppress; if these are found in the stack trace, it will be suppressed -->
+              <Valid name="" /><!-- use this to "unsuppress" a subset of the suppressed list -->
+            </RuntimeException>
+        </BuiltIn>
+
+        <!-- Collect data about caught exceptions
+             and method execution times -->
+
+        <Class name="com.microsoft.demoai.HelloUtils" Type="Service" enabled="true">
+           <!--Method name="slow"
+               reportCaughtExceptions="true"
+               reportExecutionTime="true"
+               />-->
+
+           
+        </Class>
+
+      </Instrumentation>
+    </ApplicationInsightsAgent>
