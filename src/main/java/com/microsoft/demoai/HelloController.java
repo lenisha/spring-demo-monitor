@@ -56,7 +56,7 @@ public class HelloController {
         props.put("client", "client" + rand);
 
         // track a custom metric
-        telemetryClient.trackMetric("custom dim metric", drand, 2, 0.0, 1.0, null, props);
+        telemetryClient.trackMetric("custom split metric", drand, 2, 0.0, 1.0, null, props);
         
         // track a custom dependency
         telemetryClient.trackDependency("ClientProfile Service", "Get", new Duration(0, 0, 1, 1, 1), true);
