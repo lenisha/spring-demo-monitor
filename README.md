@@ -183,6 +183,13 @@ render barchart
 ```
 ![metrics](img/query.png)
 
+## Custom Metrics Dimension
+As of today Dimension collection needs to be explicitly turned on for the aggregated custom metrics.  You can find the setting to enable this under the “Usage and estimated costs” blade:
+![metrics](img/customdimensions.png)
+
+
+Heere is example for our custom metrics in HelloController with "Apply Splitting" by client:
+![metrics](img/applysplit.png)
 
 ## App Insights Java agent integration
 Azure App Insights agent allows you to capture automatically dependencies such as JDBC, HTTP calls and profile specific methods and exceptions. For the list of capabilities and configuration walkthrough to refer to [Java App Insights Agent Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-agent)
