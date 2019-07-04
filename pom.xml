@@ -120,6 +120,16 @@
 						</resource>
 						<resource>
 							<!-- Where your artifacts are stored -->
+							<directory>${project.basedir}</directory>
+							<!-- Relative path to /site/wwwroot/ -->
+							<targetPath>.</targetPath>
+							<includes>
+								<!--<include>web.config</include>-->
+								<include>*.ps1</include>
+							</includes>
+						</resource>
+						<resource>
+							<!-- Where your artifacts are stored -->
 							<directory>${project.basedir}/agent</directory>
 							<!-- Relative path to /site/wwwroot/ -->
 							<targetPath>agent</targetPath>
