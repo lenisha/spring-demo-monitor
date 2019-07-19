@@ -31,13 +31,13 @@ public class HelloController {
     private CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
 
     @GetMapping("/trackAuto")
-    public int trackDependencyAutomatically() throws IOException {
+    public String trackDependencyAutomatically() throws IOException {
         HttpGet httpGet = new HttpGet("https://www.google.com");
         int status;
         try (CloseableHttpResponse response = closeableHttpClient.execute(httpGet)) {
             status = response.getStatusLine().getStatusCode();
         }
-        return status;
+        return Integer.toString(status);
     }
 
     @GetMapping("/track")
